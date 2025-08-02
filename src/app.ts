@@ -38,7 +38,7 @@ app.use("/api/v1", router);
 
 // Home route
 app.get("/", (req: Request, res: Response) => {
-  res.send("API Working with /api/v1 for TM-eCommerce-backEnd");
+  res.send("API Working with /api/v1 for Ride Booking BackEnd");
 });
 
 // Catch-all route for undefined routes

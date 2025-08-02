@@ -1,7 +1,7 @@
+"use strict";
 // import { Request, Response } from "express";
 // import DriverService from "./driver.service";
 // import { successResponse, errorResponse } from "../../utils/apiResponse";
-
 // class DriverController {
 //   async getAvailableRides(req: Request, res: Response) {
 //     try {
@@ -11,7 +11,6 @@
 //       errorResponse(res, 500, error.message);
 //     }
 //   }
-
 //   async acceptRide(req: Request, res: Response) {
 //     try {
 //       const ride = await DriverService.acceptRide(req.params.id, req.user.id);
@@ -20,7 +19,6 @@
 //       errorResponse(res, 400, error.message);
 //     }
 //   }
-
 //   async updateAvailability(req: Request, res: Response) {
 //     try {
 //       const driver = await DriverService.updateAvailability(
@@ -33,5 +31,4 @@
 //     }
 //   }
 // }
-
 // export default new DriverController();
