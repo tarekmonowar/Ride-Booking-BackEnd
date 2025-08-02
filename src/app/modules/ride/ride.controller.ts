@@ -51,7 +51,8 @@ const getRideHistory = catchAsync(async (req: Request, res: Response) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "Ride history retrieved successfully",
-    data: result,
+    data: result.data,
+    meta: result.meta,
   });
 });
 
@@ -65,7 +66,8 @@ const getAllRides = catchAsync(async (req: Request, res: Response) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "All ride retrieved successfully",
-    data: result,
+    data: result.data,
+    meta: result.meta,
   });
 });
 
@@ -83,7 +85,11 @@ const driverHistory = catchAsync(async (req: Request, res: Response) => {
     success: true,
     statusCode: httpStatus.OK,
     message: "All history retrieved successfully",
-    data: result,
+    data: {
+      totalEarning: result.totalEarning,
+      rides: result.rides,
+    },
+    meta: result.meta,
   });
 });
 

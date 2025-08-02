@@ -13,6 +13,7 @@ const env_1 = require("../../config/env");
 const CalculateCost_1 = require("../../utils/CalculateCost");
 const user_interface_1 = require("../user/user.interface");
 const queryBuilder_1 = require("../../utils/queryBuilder");
+const mongoose_1 = __importDefault(require("mongoose"));
 //*-----------------------------------------------------------------create ride------------------------------------------
 const createRide = async (payload, userId) => {
     const rider = await user_model_1.User.findById(userId);
@@ -96,6 +97,22 @@ const getAllRides = async (query) => {
 };
 //*-----------------------------------------------------------------get all driver history------------------------------------------
 const driverHistory = async (userId, query) => {
+    // Aggregate total earning
+    const totalEarningResult = await ride_model_1.Ride.aggregate([
+        {
+            $match: {
+                driver: new mongoose_1.default.Types.ObjectId(userId),
+                status: "COMPLETED",
+            },
+        },
+        {
+            $group: {
+                _id: null,
+                total: { $sum: "$estimatedCost" },
+            },
+        },
+    ]);
+    const totalEarning = totalEarningResult[0]?.total || 0;
     const baseQuery = ride_model_1.Ride.find({ driver: userId });
     const queryBuilder = new queryBuilder_1.QueryBuilder(baseQuery, query);
     const rideData = queryBuilder.filter().fields().sort().paginate();
@@ -104,7 +121,8 @@ const driverHistory = async (userId, query) => {
         queryBuilder.getMeta(),
     ]);
     return {
-        data,
+        totalEarning,
+        rides: data,
         meta,
     };
 };

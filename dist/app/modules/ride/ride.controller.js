@@ -42,7 +42,8 @@ const getRideHistory = (0, catchAsync_1.catchAsync)(async (req, res) => {
         success: true,
         statusCode: http_status_codes_1.default.OK,
         message: "Ride history retrieved successfully",
-        data: result,
+        data: result.data,
+        meta: result.meta,
     });
 });
 //*--------------------------------------------------------get all ride admin--------------------------------------------
@@ -53,7 +54,8 @@ const getAllRides = (0, catchAsync_1.catchAsync)(async (req, res) => {
         success: true,
         statusCode: http_status_codes_1.default.OK,
         message: "All ride retrieved successfully",
-        data: result,
+        data: result.data,
+        meta: result.meta,
     });
 });
 //*--------------------------------------------------------Driver ride history--------------------------------------------
@@ -65,7 +67,11 @@ const driverHistory = (0, catchAsync_1.catchAsync)(async (req, res) => {
         success: true,
         statusCode: http_status_codes_1.default.OK,
         message: "All history retrieved successfully",
-        data: result,
+        data: {
+            totalEarning: result.totalEarning,
+            rides: result.rides,
+        },
+        meta: result.meta,
     });
 });
 //*--------------------------------------------------------Driver accept ride and update status--------------------------------------------

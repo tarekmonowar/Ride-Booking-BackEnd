@@ -16,7 +16,8 @@ const getAvailableRides = (0, catchAsync_1.catchAsync)(async (req, res) => {
         statusCode: http_status_codes_1.default.OK,
         success: true,
         message: "All Available ride retrieved successfully",
-        data: result,
+        data: result.data,
+        meta: result.meta,
     });
 });
 //*--------------------------------------------------------acceptRide--------------------------------------------

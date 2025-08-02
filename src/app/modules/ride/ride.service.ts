@@ -11,6 +11,7 @@ import { envVars } from "../../config/env";
 import { calculateDistanceInKm } from "../../utils/CalculateCost";
 import { Role } from "../user/user.interface";
 import { QueryBuilder } from "../../utils/queryBuilder";
+import mongoose from "mongoose";
 
 //*-----------------------------------------------------------------create ride------------------------------------------
 const createRide = async (payload: CreateRideInput, userId: string) => {
@@ -130,6 +131,23 @@ const getAllRides = async (query: Record<string, string>) => {
 //*-----------------------------------------------------------------get all driver history------------------------------------------
 
 const driverHistory = async (userId: string, query: Record<string, string>) => {
+  // Aggregate total earning
+  const totalEarningResult = await Ride.aggregate([
+    {
+      $match: {
+        driver: new mongoose.Types.ObjectId(userId),
+        status: "COMPLETED",
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        total: { $sum: "$estimatedCost" },
+      },
+    },
+  ]);
+  const totalEarning = totalEarningResult[0]?.total || 0;
+
   const baseQuery = Ride.find({ driver: userId });
   const queryBuilder = new QueryBuilder(baseQuery, query);
   const rideData = queryBuilder.filter().fields().sort().paginate();
@@ -140,7 +158,8 @@ const driverHistory = async (userId: string, query: Record<string, string>) => {
   ]);
 
   return {
-    data,
+    totalEarning,
+    rides: data,
     meta,
   };
 };
