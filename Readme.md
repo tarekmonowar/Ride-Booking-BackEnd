@@ -5,6 +5,14 @@
 A secure, scalable backend system for ride-hailing services (like Uber/Pathao)
 with role-based access control. Built with Express.js and Mongoose.
 
+---
+
+## Live Backend Link
+
+https://booking-ride.vercel.app/
+
+---
+
 ## Features ✨
 
 - **🔐 JWT Authentication** with refresh tokens
@@ -15,6 +23,64 @@ with role-based access control. Built with Express.js and Mongoose.
 - **📜 Zod Schema Validation** for all requests
 - **🔒 Secure Password Hashing** with bcrypt
 - **📈 Ride History Tracking** for all users
+
+## Tech Stack 🛠️
+
+| Category       | Technologies             |
+| -------------- | ------------------------ |
+| Backend        | Node.js, Express.js      |
+| Database       | MongoDB, Mongoose ODM    |
+| Authentication | JWT, Passport.js, bcrypt |
+| Validation     | Zod                      |
+| Testing        | Postman                  |
+
+---
+
+## 👤 User Management
+
+All user-related routes are prefixed with: `/api/v1/user`
+
+| Method | Endpoint     | Description                                | Access        |
+| ------ | ------------ | ------------------------------------------ | ------------- |
+| POST   | `/register`  | Register new user with email/name/password | Public        |
+| GET    | `/all-users` | Get all users                              | Admin Only    |
+| GET    | `/me`        | Get current user profile                   | Authenticated |
+| GET    | `/:id`       | Get user by ID                             | Admin Only    |
+| PATCH  | `/:id`       | Update user information                    | Owner/Admin   |
+
+---
+
+## 🔐 Authentication Routes
+
+All authentication-related routes are prefixed with: `/api/v1/auth`
+
+| Method | Endpoint           | Description                       | Access        |
+| ------ | ------------------ | --------------------------------- | ------------- |
+| POST   | `/login`           | User login with credentials       | Public        |
+| POST   | `/refresh-token`   | Refresh access token              | Public        |
+| POST   | `/logout`          | Invalidate current session        | Authenticated |
+| POST   | `/change-password` | Change user password              | Authenticated |
+| POST   | `/set-password`    | set password for google auth user | Authenticated |
+| POST   | `/forgot-password` | Initiate password reset           | Public        |
+| GET    | `/google`          | Initiate Google OAuth login       | Public        |
+| GET    | `/google/callback` | Google OAuth callback handler     | Public        |
+
+---
+
+## 🚗 Ride Management
+
+All ride-related routes are prefixed with: `/api/v1/ride`
+
+| Method | Endpoint             | Description               | Access     |
+| ------ | -------------------- | ------------------------- | ---------- |
+| POST   | `/rider-request`     | Request a new ride        | Rider      |
+| PATCH  | `/ride-cancel/:id`   | Cancel requested ride     | Rider      |
+| GET    | `/rider-history`     | Get rider's ride history  | Rider      |
+| GET    | `/all-rides`         | Get all rides             | Admin Only |
+| GET    | `/driver-history`    | Get driver's ride history | Driver     |
+| PATCH  | `/update-status/:id` | Update ride status        | Driver     |
+
+---
 
 ## 🧍 Rider Features
 
@@ -45,57 +111,7 @@ with role-based access control. Built with Express.js and Mongoose.
 - Modular project architecture
 - Centralized error handling middleware
 
-## Tech Stack 🛠️
-
-| Category       | Technologies             |
-| -------------- | ------------------------ |
-| Backend        | Node.js, Express.js      |
-| Database       | MongoDB, Mongoose ODM    |
-| Authentication | JWT, Passport.js, bcrypt |
-| Validation     | Zod                      |
-| Security       | Helmet, CORS             |
-| Testing        | Postman                  |
-
-## 🔐 Authentication Routes
-
-All authentication-related routes are prefixed with: `/api/v1/auth`
-
-| Method | Endpoint           | Description                   | Access        |
-| ------ | ------------------ | ----------------------------- | ------------- |
-| POST   | `/login`           | User login with credentials   | Public        |
-| POST   | `/refresh-token`   | Refresh access token          | Public        |
-| POST   | `/logout`          | Invalidate current session    | Authenticated |
-| POST   | `/change-password` | Change user password          | Authenticated |
-| POST   | `/forgot-password` | Initiate password reset       | Public        |
-| GET    | `/google`          | Initiate Google OAuth login   | Public        |
-| GET    | `/google/callback` | Google OAuth callback handler | Public        |
-
-## 👤 User Management
-
-All user-related routes are prefixed with: `/api/v1/user`
-
-| Method | Endpoint     | Description              | Access        |
-| ------ | ------------ | ------------------------ | ------------- |
-| POST   | `/register`  | Register new user        | Public        |
-| GET    | `/all-users` | Get all users            | Admin Only    |
-| GET    | `/me`        | Get current user profile | Authenticated |
-| GET    | `/:id`       | Get user by ID           | Admin Only    |
-| PATCH  | `/:id`       | Update user information  | Owner/Admin   |
-
 ---
-
-## 🚗 Ride Management
-
-All ride-related routes are prefixed with: `/api/v1/ride`
-
-| Method | Endpoint             | Description               | Access     |
-| ------ | -------------------- | ------------------------- | ---------- |
-| POST   | `/rider-request`     | Request a new ride        | Rider      |
-| PATCH  | `/ride-cancel/:id`   | Cancel requested ride     | Rider      |
-| GET    | `/rider-history`     | Get rider's ride history  | Rider      |
-| GET    | `/all-rides`         | Get all rides             | Admin Only |
-| GET    | `/driver-history`    | Get driver's ride history | Driver     |
-| PATCH  | `/update-status/:id` | Update ride status        | Driver     |
 
 ## 🔄 Ride Lifecycle
 
@@ -111,33 +127,13 @@ cancellation:
 | **Completed**  | Ride finished successfully                   |
 | **Cancelled**  | Ride was cancelled (by rider or system)      |
 
-## 🧪 Test Scenarios
-
-Below are typical user flows for testing the system functionality based on user
-roles:
-
-### 🧍‍♂️ Rider Flow
-
-1. **Register** a new rider account
-2. **Login** using credentials
-3. **Request a Ride** via `/rider-request`
-4. **View Ride History** via `/rider-history`
-5. **Cancel a Ride** via `/ride-cancel/:id`
-
 ---
 
-### 🚖 Driver Flow
+## Setup & Running
 
-1. **Register** a new driver account
-2. **Login** using credentials
-3. **Accept a Ride Request** (implementation-specific logic)
-4. **Update Ride Status** via `/update-status/:id`
-5. **View Earnings / History** via `/driver-history`
+1. Clone the repository:
 
----
+   ```bash
+   git clone https://github.com/tarekmonowar/Ride-Booking-BackEnd.git
 
-### 👨‍💼 Admin Flow
-
-1. **View All Users** via `/all-users`
-2. **Block a User** via `PATCH /user/:id` (with status update or role change)
-3. **View All Rides** via `/all-rides`
+   ```
