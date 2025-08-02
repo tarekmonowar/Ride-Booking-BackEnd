@@ -1,34 +1,50 @@
 "use strict";
-// import { Request, Response } from "express";
-// import DriverService from "./driver.service";
-// import { successResponse, errorResponse } from "../../utils/apiResponse";
-// class DriverController {
-//   async getAvailableRides(req: Request, res: Response) {
-//     try {
-//       const rides = await DriverService.getAvailableRides();
-//       successResponse(res, rides);
-//     } catch (error: any) {
-//       errorResponse(res, 500, error.message);
-//     }
-//   }
-//   async acceptRide(req: Request, res: Response) {
-//     try {
-//       const ride = await DriverService.acceptRide(req.params.id, req.user.id);
-//       successResponse(res, ride, 200, "Ride accepted");
-//     } catch (error: any) {
-//       errorResponse(res, 400, error.message);
-//     }
-//   }
-//   async updateAvailability(req: Request, res: Response) {
-//     try {
-//       const driver = await DriverService.updateAvailability(
-//         req.user.id,
-//         req.body.isAvailable,
-//       );
-//       successResponse(res, driver, 200, "Availability updated");
-//     } catch (error: any) {
-//       errorResponse(res, 400, error.message);
-//     }
-//   }
-// }
-// export default new DriverController();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DriverController = void 0;
+const catchAsync_1 = require("../../utils/catchAsync");
+const sendResponse_1 = require("../../utils/sendResponse");
+const http_status_codes_1 = __importDefault(require("http-status-codes"));
+const driver_service_1 = require("./driver.service");
+//*--------------------------------------------------------getAvailableRides--------------------------------------------
+const getAvailableRides = (0, catchAsync_1.catchAsync)(async (req, res) => {
+    const query = req.query;
+    const result = await driver_service_1.DriverService.getAvailableRides(query);
+    (0, sendResponse_1.sendResponse)(res, {
+        statusCode: http_status_codes_1.default.OK,
+        success: true,
+        message: "All Available ride retrieved successfully",
+        data: result,
+    });
+});
+//*--------------------------------------------------------acceptRide--------------------------------------------
+const acceptRide = (0, catchAsync_1.catchAsync)(async (req, res) => {
+    const decodeToken = req.user;
+    const rideId = req.params.id;
+    const result = await driver_service_1.DriverService.acceptRide(rideId, decodeToken.userId);
+    (0, sendResponse_1.sendResponse)(res, {
+        statusCode: http_status_codes_1.default.OK,
+        success: true,
+        message: "All Available ride retrieved successfully",
+        data: result,
+    });
+});
+//*--------------------------------------------------------updateAvailability--------------------------------------------
+const updateAvailability = (0, catchAsync_1.catchAsync)(async (req, res) => {
+    const decodeToken = req.user;
+    const isAvailable = req.body.isAvailable;
+    const result = await driver_service_1.DriverService.updateAvailability(decodeToken.userId, isAvailable);
+    (0, sendResponse_1.sendResponse)(res, {
+        statusCode: http_status_codes_1.default.OK,
+        success: true,
+        message: "All Available ride retrieved successfully",
+        data: result,
+    });
+});
+exports.DriverController = {
+    getAvailableRides,
+    acceptRide,
+    updateAvailability,
+};

@@ -50,4 +50,4 @@ router.patch(
   RideController.updateRideStatus,
 );
 
-export default router;
+export const RideRoutes = router;

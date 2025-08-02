@@ -1,20 +1,28 @@
-// import express from "express";
-// import DriverController from "./driver.controller";
-// import { authenticate, authorize } from "../../middlewares/auth.middleware";
-// import { validate } from "../../middlewares/validate.middleware";
-// import { availabilitySchema } from "./driver.validation";
-// import { UserRole } from "../../interfaces/user.interface";
+import express from "express";
+import { checkAuth } from "../../middleware/auth.middleware";
+import { Role } from "../user/user.interface";
+import { DriverController } from "./driver.controller";
+import { validateRequest } from "../../middleware/validate.middleware";
+import { updateAvailabilitySchema } from "./driver.validation";
+const router = express.Router();
 
-// const router = express.Router();
+router.get(
+  "/available-rides",
+  checkAuth(...Object.values(Role)),
+  DriverController.getAvailableRides,
+);
 
-// router.use(authenticate, authorize([UserRole.DRIVER]));
+router.patch(
+  "/accept/:id",
+  checkAuth(Role.DRIVER),
+  DriverController.acceptRide,
+);
 
-// router.get("/available-rides", DriverController.getAvailableRides);
-// router.patch("/accept/:id", DriverController.acceptRide);
-// router.patch(
-//   "/availability",
-//   validate(availabilitySchema),
-//   DriverController.updateAvailability,
-// );
+router.patch(
+  "/availability",
+  validateRequest(updateAvailabilitySchema),
+  checkAuth(Role.DRIVER),
+  DriverController.updateAvailability,
+);
 
-// export default router;
+export const DriverRoutes = router;

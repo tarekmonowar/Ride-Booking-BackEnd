@@ -1,45 +1,77 @@
-// import User from "../../models/User.model";
-// import { errorResponse } from "../../utils/apiResponse";
+import { QueryBuilder } from "../../utils/queryBuilder";
+import { RideStatus } from "../ride/ride.interface";
+import { Ride } from "../ride/ride.model";
+import httpStatus from "http-status-codes";
+import AppError from "../../errorHelpers/AppError";
+import { User } from "../user/user.model";
+import { Types } from "mongoose";
+import { envVars } from "../../config/env";
 
-// class DriverService {
-//   async getAvailableRides() {
-//     return await Ride.find({
-//       status: "requested",
-//       driver: { $exists: false },
-//     }).populate("rider", "name");
-//   }
+//*-----------------------------------------------------------------getAvailableRides------------------------------------------
 
-//   async acceptRide(rideId: string, driverId: string) {
-//     const ride = await Ride.findById(rideId);
-//     if (!ride || ride.status !== "requested") {
-//       throw new Error("Ride not available");
-//     }
+const getAvailableRides = async (query: Record<string, string>) => {
+  const forcedQuery = { ...query, status: RideStatus.REQUESTED };
+  const queryBuilder = new QueryBuilder(Ride.find(), forcedQuery);
 
-//     const driver = await User.findById(driverId);
-//     if (!driver || !driver.isApproved || !driver.isAvailable) {
-//       throw new Error("Driver not available");
-//     }
+  const rideData = queryBuilder.filter().fields().sort().paginate();
 
-//     ride.driver = driverId;
-//     ride.status = "accepted";
-//     ride.acceptedAt = new Date();
+  const [data, meta] = await Promise.all([
+    rideData.build().populate("rider").lean(),
+    queryBuilder.getMeta(),
+  ]);
 
-//     // Update driver availability
-//     driver.isAvailable = false;
-//     await driver.save();
+  return {
+    data,
+    meta,
+  };
+};
 
-//     return await ride.save();
-//   }
+//*-----------------------------------------------------------------acceptRide------------------------------------------
 
-//   async updateAvailability(userId: string, isAvailable: boolean) {
-//     const driver = await User.findById(userId);
-//     if (!driver || driver.role !== "driver") {
-//       throw new Error("Driver not found");
-//     }
+const acceptRide = async (rideId: string, driverId: string) => {
+  const ride = await Ride.findById(rideId);
+  const MAX_CANCEL_LIMIT = Number(envVars.MAX_CANCEL_LIMIT);
 
-//     driver.isAvailable = isAvailable;
-//     return await driver.save();
-//   }
-// }
+  if (!ride || ride.status !== RideStatus.REQUESTED) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Ride Not Available");
+  }
+  const driver = await User.findById(driverId);
+  if (!driver || !driver.isApproved || !driver.isAvailable) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Driver Not Available");
+  }
 
-// export default new DriverService();
+  if (driver.cancelledRidesCount! >= MAX_CANCEL_LIMIT) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      "Driver not available due to too many cancellations.",
+    );
+  }
+
+  ride.driver = new Types.ObjectId(driverId);
+  ride.status = RideStatus.ACCEPTED;
+  ride.acceptedAt = new Date();
+
+  driver.isAvailable = false;
+  await driver.save();
+  await ride.save();
+
+  return ride;
+};
+
+//*-----------------------------------------------------------------updateAvailability------------------------------------------
+
+const updateAvailability = async (driverId: string, isAvailable: boolean) => {
+  const driver = await User.findById(driverId);
+  if (!driver || !driver.isApproved) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Driver Not Available");
+  }
+  driver.isAvailable = isAvailable;
+  await driver.save();
+  return driver;
+};
+
+export const DriverService = {
+  getAvailableRides,
+  acceptRide,
+  updateAvailability,
+};

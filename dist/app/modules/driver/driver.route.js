@@ -1,17 +1,17 @@
 "use strict";
-// import express from "express";
-// import DriverController from "./driver.controller";
-// import { authenticate, authorize } from "../../middlewares/auth.middleware";
-// import { validate } from "../../middlewares/validate.middleware";
-// import { availabilitySchema } from "./driver.validation";
-// import { UserRole } from "../../interfaces/user.interface";
-// const router = express.Router();
-// router.use(authenticate, authorize([UserRole.DRIVER]));
-// router.get("/available-rides", DriverController.getAvailableRides);
-// router.patch("/accept/:id", DriverController.acceptRide);
-// router.patch(
-//   "/availability",
-//   validate(availabilitySchema),
-//   DriverController.updateAvailability,
-// );
-// export default router;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DriverRoutes = void 0;
+const express_1 = __importDefault(require("express"));
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const user_interface_1 = require("../user/user.interface");
+const driver_controller_1 = require("./driver.controller");
+const validate_middleware_1 = require("../../middleware/validate.middleware");
+const driver_validation_1 = require("./driver.validation");
+const router = express_1.default.Router();
+router.get("/available-rides", (0, auth_middleware_1.checkAuth)(...Object.values(user_interface_1.Role)), driver_controller_1.DriverController.getAvailableRides);
+router.patch("/accept/:id", (0, auth_middleware_1.checkAuth)(user_interface_1.Role.DRIVER), driver_controller_1.DriverController.acceptRide);
+router.patch("/availability", (0, validate_middleware_1.validateRequest)(driver_validation_1.updateAvailabilitySchema), (0, auth_middleware_1.checkAuth)(user_interface_1.Role.DRIVER), driver_controller_1.DriverController.updateAvailability);
+exports.DriverRoutes = router;

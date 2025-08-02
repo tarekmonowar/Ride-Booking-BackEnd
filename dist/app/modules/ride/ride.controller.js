@@ -20,17 +20,6 @@ const createRide = (0, catchAsync_1.catchAsync)(async (req, res) => {
         data: result,
     });
 });
-// async getRideHistory(req: Request, res: Response) {
-//   try {
-//     const rides = await RideService.getRideHistory(
-//       req.user.id,
-//       req.user.role,
-//     );
-//     successResponse(res, rides);
-//   } catch (error: any) {
-//     errorResponse(res, 500, error.message);
-//   }
-// }
 //*--------------------------------------------------------cancelRide--------------------------------------------
 const cancelRide = (0, catchAsync_1.catchAsync)(async (req, res) => {
     const payload = req.body;

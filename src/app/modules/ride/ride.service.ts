@@ -206,16 +206,16 @@ const updateRideStatus = async (
       break;
     case RideStatus.COMPLETED:
       ride.completedAt = new Date();
+      driver.isAvailable = true;
+      await driver.save();
       break;
     case RideStatus.CANCELLED:
       ride.cancellationReason = updateData.cancellationReason;
       ride.cancelledAt = new Date();
+      driver.cancelledRidesCount! += 1;
+      driver.isAvailable = true;
+      await driver.save();
       break;
-  }
-
-  if (updateData.status === RideStatus.CANCELLED) {
-    driver.cancelledRidesCount! += 1;
-    await driver.save();
   }
 
   const UpdateRide = await ride.save();

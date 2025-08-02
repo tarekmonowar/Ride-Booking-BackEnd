@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RideRoutes = void 0;
 const express_1 = __importDefault(require("express"));
 const validate_middleware_1 = require("../../middleware/validate.middleware");
 const ride_validation_1 = require("./ride.validation");
@@ -19,4 +20,4 @@ router.get("/all-rides", (0, auth_middleware_1.checkAuth)(user_interface_1.Role.
 // Driver routes
 router.get("/driver-history", (0, auth_middleware_1.checkAuth)(user_interface_1.Role.DRIVER), ride_controller_1.RideController.driverHistory);
 router.patch("/update-status/:id", (0, validate_middleware_1.validateRequest)(ride_validation_1.updateRideStatusSchema), (0, auth_middleware_1.checkAuth)(user_interface_1.Role.DRIVER), ride_controller_1.RideController.updateRideStatus);
-exports.default = router;
+exports.RideRoutes = router;
