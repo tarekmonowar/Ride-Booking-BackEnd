@@ -29,7 +29,9 @@ const createUser = async (payload) => {
         auths: [authProvider],
         ...rest,
     });
-    return user;
+    const userWithoutPassword = user?.toObject();
+    delete userWithoutPassword.password;
+    return userWithoutPassword;
 };
 //*---------------------------------------------------------------update user------------------------------------------------------
 const updateUser = async (userId, payload, decodedToken) => {
@@ -64,7 +66,9 @@ const updateUser = async (userId, payload, decodedToken) => {
         new: true,
         runValidators: true,
     });
-    return newUpdatedUser;
+    const userWithoutPassword = newUpdatedUser?.toObject();
+    delete userWithoutPassword?.password;
+    return userWithoutPassword;
 };
 //*---------------------------------------------------------------get all users------------------------------------------------
 const getAllUsers = async (query) => {
@@ -79,8 +83,14 @@ const getAllUsers = async (query) => {
         usersData.build(),
         queryBuilder.getMeta(),
     ]);
+    // remove password from each user
+    const usersWithoutPassword = data.map((user) => {
+        const userObj = user.toObject?.() || user;
+        delete userObj.password;
+        return userObj;
+    });
     return {
-        data,
+        data: usersWithoutPassword,
         meta,
     };
 };

@@ -24,7 +24,8 @@ const transporter = nodemailer_1.default.createTransport({
 });
 const sendEmail = async ({ to, subject, templateName, templateData, attachments, }) => {
     try {
-        const templatePath = path_1.default.join(__dirname, `templates/${templateName}.ejs`);
+        // const templatePath = path.join(__dirname, `templates/${templateName}.ejs`);
+        const templatePath = path_1.default.join(process.cwd(), "dist/app/utils/templates", `${templateName}.ejs`);
         const html = await ejs_1.default.renderFile(templatePath, templateData);
         const info = await transporter.sendMail({
             from: env_1.envVars.EMAIL_SENDER.SMTP_FROM,

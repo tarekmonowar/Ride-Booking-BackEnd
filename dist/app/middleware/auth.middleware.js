@@ -16,6 +16,7 @@ const checkAuth = (...authRoles) => async (req, res, next) => {
             throw new AppError_1.default(401, "No Token Recieved");
         }
         const verifiedToken = (0, jwt_1.verifyToken)(accessToken, env_1.envVars.JWT_ACCESS_SECRET);
+        console.log(verifiedToken.email);
         const isUserExist = await user_model_1.User.findOne({
             email: verifiedToken.email,
         });

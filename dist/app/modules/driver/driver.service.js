@@ -34,8 +34,14 @@ const acceptRide = async (rideId, driverId) => {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Ride Not Available");
     }
     const driver = await user_model_1.User.findById(driverId);
-    if (!driver || !driver.isApproved || !driver.isAvailable) {
+    if (!driver) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver Not Available");
+    }
+    if (!driver.isApproved) {
+        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver Not Approved by admin");
+    }
+    if (!driver.isAvailable) {
+        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver is currently unavailable or already on a ride.");
     }
     if (driver.cancelledRidesCount >= MAX_CANCEL_LIMIT) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver not available due to too many cancellations.");
@@ -52,7 +58,7 @@ const acceptRide = async (rideId, driverId) => {
 const updateAvailability = async (driverId, isAvailable) => {
     const driver = await user_model_1.User.findById(driverId);
     if (!driver || !driver.isApproved) {
-        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver Not Available");
+        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Driver Not Found");
     }
     driver.isAvailable = isAvailable;
     await driver.save();

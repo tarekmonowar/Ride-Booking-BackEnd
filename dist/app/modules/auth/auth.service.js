@@ -52,6 +52,9 @@ const setPassword = async (userId, plainPassword) => {
         user.auths.some((providerObject) => providerObject.provider === "google")) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "You have already set password,please change your password");
     }
+    if (!plainPassword) {
+        throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Password not received");
+    }
     const hashedPassword = await bcryptjs_1.default.hash(plainPassword, Number(env_1.envVars.BCRYPT_SALT_ROUND));
     const credentialProvider = {
         provider: "credentials",
@@ -86,7 +89,7 @@ const forgotPassword = async (email) => {
         expiresIn: "10m",
     });
     const resetUILink = `${env_1.envVars.FRONTEND_URL}/reset-password?id=${isUserExist._id}&token=${resetToken}`;
-    (0, sendEmail_1.sendEmail)({
+    await (0, sendEmail_1.sendEmail)({
         to: isUserExist.email,
         subject: "Password Reset",
         templateName: "forgetPassword",
@@ -99,7 +102,7 @@ const forgotPassword = async (email) => {
 //*---------------------------------------------reset Password ----------------------------
 const resetPassword = async (payload, decodedToken) => {
     if (payload.id != decodedToken.userId) {
-        throw new AppError_1.default(401, "You cannot reset your password");
+        throw new AppError_1.default(401, "You cannot reset your password..invalid ID ");
     }
     const isUserExist = await user_model_1.User.findById(decodedToken.userId);
     if (!isUserExist) {

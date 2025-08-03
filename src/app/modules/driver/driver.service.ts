@@ -74,7 +74,7 @@ const acceptRide = async (rideId: string, driverId: string) => {
 const updateAvailability = async (driverId: string, isAvailable: boolean) => {
   const driver = await User.findById(driverId);
   if (!driver || !driver.isApproved) {
-    throw new AppError(httpStatus.BAD_REQUEST, "Driver Not Available");
+    throw new AppError(httpStatus.BAD_REQUEST, "Driver Not Found");
   }
   driver.isAvailable = isAvailable;
   await driver.save();

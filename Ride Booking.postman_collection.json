@@ -30,10 +30,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/user/register",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/user/register",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "user", "register"]
             }
           },
@@ -49,7 +48,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjA5NDU2LCJleHAiOjE3NTQyOTU4NTZ9.hCvHUIhByvmAXd8sLEkhtRNSytmT6lzUfsR40xR1l3A",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjM5MjUwLCJleHAiOjE3NTQzMjU2NTB9.koT4Q3nGA42zc6pRUvUk3uJHiCJ4O_BleHuh7MLkCy4",
                 "type": "text"
               }
             ],
@@ -63,10 +62,41 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/user/all-users?role=DRIVER",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/user/all-users",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
+              "path": ["api", "v1", "user", "all-users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all drivers admin",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjM5MjUwLCJleHAiOjE3NTQzMjU2NTB9.koT4Q3nGA42zc6pRUvUk3uJHiCJ4O_BleHuh7MLkCy4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://booking-ride.vercel.app/api/v1/user/all-users?role=DRIVER",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "user", "all-users"],
               "query": [
                 {
@@ -88,7 +118,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjA5NDU2LCJleHAiOjE3NTQyOTU4NTZ9.hCvHUIhByvmAXd8sLEkhtRNSytmT6lzUfsR40xR1l3A",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjM5MjUwLCJleHAiOjE3NTQzMjU2NTB9.koT4Q3nGA42zc6pRUvUk3uJHiCJ4O_BleHuh7MLkCy4",
                 "type": "text"
               }
             ],
@@ -102,10 +132,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/user/me",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/user/me",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "user", "me"]
             }
           },
@@ -132,11 +161,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/user/688f17e03e10897579b63c23",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "v1", "user", "688f17e03e10897579b63c23"]
+              "raw": "https://booking-ride.vercel.app/api/v1/user/688f922b78877683dd20731e",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
+              "path": ["api", "v1", "user", "688f922b78877683dd20731e"]
             }
           },
           "response": []
@@ -159,7 +187,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"password\":\"dddddD@2\"\r\n   \r\n   \r\n}",
+              "raw": "{\r\n\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"password\":\"Ph@654321@hP\"\r\n   \r\n   \r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -167,10 +195,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/login",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "login"]
             }
           },
@@ -197,10 +224,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/forgot-password",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/forgot-password",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "forgot-password"]
             }
           },
@@ -213,13 +239,13 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjEwNjQ4LCJleHAiOjE3NTQyMTEyNDh9.NRcuxFVsKUsrrBRiQho8TBYZxmpuxibYn2HOUL54S7s",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjQwODU3LCJleHAiOjE3NTQyNDE0NTd9.ezK8QnE2anIDi0JmMAcsxFND17z4rT7V7K587uoTk-g",
                 "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n   \"newPassword\":\"Ph@654321@hP\",\r\n   \"id\":\"688f162f3e10897579b63c1f\"\r\n    \r\n}",
+              "raw": "{\r\n   \"newPassword\":\"Ph@654321@hP\",\r\n   \"id\":\"688f907278877683dd2072f9\"\r\n    \r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -227,10 +253,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/reset-password",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/reset-password",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "reset-password"]
             }
           },
@@ -257,10 +282,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/set-password",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/set-password",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "set-password"]
             }
           },
@@ -273,7 +297,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjEwMzc2LCJleHAiOjE3NTQyOTY3NzZ9.wwDeewSib6bZsNgmnva1W8Pn6bJZtxQsh_sQawhJrEI",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjQwOTg2LCJleHAiOjE3NTQzMjczODZ9.muXlG1HKeQpZ8EQNURCxc16bxDyqh8pBHhDJk9ugbOg",
                 "type": "text"
               }
             ],
@@ -287,10 +311,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/change-password",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/change-password",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "change-password"]
             }
           },
@@ -317,10 +340,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/refresh-token",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/refresh-token",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "refresh-token"]
             }
           },
@@ -347,10 +369,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/auth/logout",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/auth/logout",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "auth", "logout"]
             }
           },
@@ -376,10 +397,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/otp/send",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/otp/send",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "otp", "send"]
             }
           },
@@ -392,7 +412,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"otp\":\"975289\"\r\n    \r\n}",
+              "raw": "{\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"otp\":\"428168\"\r\n    \r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -400,10 +420,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/otp/verify",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/otp/verify",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "otp", "verify"]
             }
           },
@@ -421,7 +440,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjQxNzI2LCJleHAiOjE3NTQzMjgxMjZ9.Zp7n99WHybppymtpuZD4B12pBeZAKyQWhW6xwVxUULw",
                 "type": "text"
               }
             ],
@@ -435,10 +454,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/ride/rider-request",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/ride/rider-request",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "ride", "rider-request"]
             }
           },
@@ -451,7 +469,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTc5MywiZXhwIjoxNzU0MzI4MTkzfQ.BqYS1CacfOa3Y_6mQBVHhrJBDa1YnzTgdchUW6oOa8k",
                 "type": "text"
               }
             ],
@@ -465,16 +483,15 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/ride/ride-cancel/688f3259a17a426d4515480b",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/ride/ride-cancel/688f9accea8a1af0b98e00ca",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": [
                 "api",
                 "v1",
                 "ride",
                 "ride-cancel",
-                "688f3259a17a426d4515480b"
+                "688f9accea8a1af0b98e00ca"
               ]
             }
           },
@@ -487,13 +504,13 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTk5MywiZXhwIjoxNzU0MzI4MzkzfQ.sZXEgYA_Rr-diMBBiUSbIAbDZYNuhSEiI8ZJZ9A_gsY",
                 "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n \"status\":\"COMPLETED\"\r\n}\r\n",
+              "raw": "{\r\n \"status\":\"PICKED_UP\"\r\n}\r\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -501,16 +518,15 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/ride/update-status/688f30b32f84f595331ed5ca",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/ride/update-status/688f9accea8a1af0b98e00ca",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": [
                 "api",
                 "v1",
                 "ride",
                 "update-status",
-                "688f30b32f84f595331ed5ca"
+                "688f9accea8a1af0b98e00ca"
               ]
             }
           },
@@ -526,7 +542,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTk5MywiZXhwIjoxNzU0MzI4MzkzfQ.sZXEgYA_Rr-diMBBiUSbIAbDZYNuhSEiI8ZJZ9A_gsY",
                 "type": "text"
               }
             ],
@@ -540,10 +556,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/ride/rider-history",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/ride/rider-history",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "ride", "rider-history"]
             }
           },
@@ -559,7 +574,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTk5MywiZXhwIjoxNzU0MzI4MzkzfQ.sZXEgYA_Rr-diMBBiUSbIAbDZYNuhSEiI8ZJZ9A_gsY",
                 "type": "text"
               }
             ],
@@ -573,10 +588,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/ride/driver-history",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/ride/driver-history",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "ride", "driver-history"]
             }
           },
@@ -592,7 +606,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjE1NTM1LCJleHAiOjE3NTQzMDE5MzV9.xomJw4vgvFgNx7w6amx0jp44Mo5-fW5NsB-W32E7I_M",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTk5MywiZXhwIjoxNzU0MzI4MzkzfQ.sZXEgYA_Rr-diMBBiUSbIAbDZYNuhSEiI8ZJZ9A_gsY",
                 "type": "text"
               }
             ],
@@ -606,10 +620,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/ride/all-rides",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/ride/all-rides",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "ride", "all-rides"]
             }
           },
@@ -639,10 +652,9 @@
               "raw": ""
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/driver/available-rides",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/driver/available-rides",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "driver", "available-rides"]
             }
           },
@@ -655,7 +667,7 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTc5MywiZXhwIjoxNzU0MzI4MTkzfQ.BqYS1CacfOa3Y_6mQBVHhrJBDa1YnzTgdchUW6oOa8k",
                 "type": "text"
               }
             ],
@@ -664,16 +676,15 @@
               "raw": ""
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/driver/accept/688f3256a17a426d451547ff",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/driver/accept/688f9accea8a1af0b98e00ca",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": [
                 "api",
                 "v1",
                 "driver",
                 "accept",
-                "688f3256a17a426d451547ff"
+                "688f9accea8a1af0b98e00ca"
               ]
             }
           },
@@ -686,13 +697,13 @@
             "header": [
               {
                 "key": "Authorization",
-                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOTA3Mjc4ODc3NjgzZGQyMDcyZjkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDI0MTc5MywiZXhwIjoxNzU0MzI4MTkzfQ.BqYS1CacfOa3Y_6mQBVHhrJBDa1YnzTgdchUW6oOa8k",
                 "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"isAvailable\" :false\r\n}",
+              "raw": "{\r\n    \"isAvailable\" :true\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -700,10 +711,9 @@
               }
             },
             "url": {
-              "raw": "http://localhost:5000/api/v1/driver/availability",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
+              "raw": "https://booking-ride.vercel.app/api/v1/driver/availability",
+              "protocol": "https",
+              "host": ["booking-ride", "vercel", "app"],
               "path": ["api", "v1", "driver", "availability"]
             }
           },

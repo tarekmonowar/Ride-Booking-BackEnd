@@ -122,7 +122,7 @@ const forgotPassword = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
     (0, sendResponse_1.sendResponse)(res, {
         success: true,
         statusCode: http_status_codes_1.default.CREATED,
-        message: "Password reset successfully",
+        message: "OTP sent your email",
         data: null,
     });
 });

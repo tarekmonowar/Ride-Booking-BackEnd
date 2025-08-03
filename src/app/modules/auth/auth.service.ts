@@ -129,7 +129,7 @@ const forgotPassword = async (email: string) => {
 
   const resetUILink = `${envVars.FRONTEND_URL}/reset-password?id=${isUserExist._id}&token=${resetToken}`;
 
-  sendEmail({
+  await sendEmail({
     to: isUserExist.email,
     subject: "Password Reset",
     templateName: "forgetPassword",
@@ -146,7 +146,7 @@ const resetPassword = async (
   decodedToken: JwtPayload,
 ) => {
   if (payload.id != decodedToken.userId) {
-    throw new AppError(401, "You cannot reset your password");
+    throw new AppError(401, "You cannot reset your password..invalid ID ");
   }
 
   const isUserExist = await User.findById(decodedToken.userId);

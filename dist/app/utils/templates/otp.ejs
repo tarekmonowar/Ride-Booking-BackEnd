@@ -1,3 +1,66 @@
-<h2>Hello <%= name %>,</h2>
-<p>Your OTP code is: <strong><%= otp %></strong></p>
-<p>This code is valid for 2 minutes.</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 20px;
+      }
+      .email-container {
+        max-width: 500px;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        font-size: 24px;
+        color: #333;
+      }
+      p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+      }
+      .otp-code {
+        display: inline-block;
+        background-color: #09287e;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 6px;
+        letter-spacing: 4px;
+      }
+      .footer {
+        font-size: 14px;
+        color: #888;
+        margin-top: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <h2>
+        Hello <span style="color: #111; font-weight: bold"><%= name %></span>,
+      </h2>
+      <p>Thank you for using our service.</p>
+      <p>Your One-Time Password (OTP) is:</p>
+      <div class="otp-code"><%= otp %></div>
+      <p>
+        This code will expire in 2 minutes. Please do not share it with anyone.
+      </p>
+      <div class="footer">
+        &copy; <%= new Date().getFullYear() %> Tarek Monowar. All rights
+        reserved.
+      </div>
+    </div>
+  </body>
+</html>

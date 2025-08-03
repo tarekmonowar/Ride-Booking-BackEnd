@@ -13,16 +13,7 @@ https://booking-ride.vercel.app/
 
 ---
 
-## Features ✨
-
-- **🔐 JWT Authentication** with refresh tokens
-- **🎭 Role-Based Authorization** (Rider, Driver, Admin)
-- **🚗 Complete Ride Management** with status tracking
-- **📊 Admin Dashboard** for system oversight
-- **🔐 Google OAuth** integration
-- **📜 Zod Schema Validation** for all requests
-- **🔒 Secure Password Hashing** with bcrypt
-- **📈 Ride History Tracking** for all users
+## Postman Json Provided in folder
 
 ## Tech Stack 🛠️
 
@@ -40,13 +31,14 @@ https://booking-ride.vercel.app/
 
 All user-related routes are prefixed with: `/api/v1/user`
 
-| Method | Endpoint     | Description                                | Access        |
-| ------ | ------------ | ------------------------------------------ | ------------- |
-| POST   | `/register`  | Register new user with email/name/password | Public        |
-| GET    | `/all-users` | Get all users                              | Admin Only    |
-| GET    | `/me`        | Get current user profile                   | Authenticated |
-| GET    | `/:id`       | Get user by ID                             | Admin Only    |
-| PATCH  | `/:id`       | Update user information                    | Owner/Admin   |
+| Method | Endpoint                 | Description                                            | Access        |
+| ------ | ------------------------ | ------------------------------------------------------ | ------------- |
+| POST   | `/register`              | Register new user with email/name/password             | Public        |
+| GET    | `/all-users`             | Get all users by admin with filter,sort,pagination     | Admin Only    |
+| GET    | `/all-users?role=DRIVER` | Get all Drivers by admin with filter,sort,pagination   | Admin Only    |
+| GET    | `/me`                    | Get current user profile                               | Authenticated |
+| GET    | `/:id`                   | Get user by ID                                         | Admin Only    |
+| PATCH  | `/:id`                   | Update user information and admin allow driver profile | Owner/Admin   |
 
 ---
 
@@ -61,7 +53,8 @@ All authentication-related routes are prefixed with: `/api/v1/auth`
 | POST   | `/logout`          | Invalidate current session        | Authenticated |
 | POST   | `/change-password` | Change user password              | Authenticated |
 | POST   | `/set-password`    | set password for google auth user | Authenticated |
-| POST   | `/forgot-password` | Initiate password reset           | Public        |
+| POST   | `/forgot-password` | Initiate password reset Link      | Public        |
+| POST   | `/forgot-password` | Initiate new password reset       | Public        |
 | GET    | `/google`          | Initiate Google OAuth login       | Public        |
 | GET    | `/google/callback` | Google OAuth callback handler     | Public        |
 
@@ -69,16 +62,39 @@ All authentication-related routes are prefixed with: `/api/v1/auth`
 
 ## 🚗 Ride Management
 
+All ride-related routes are prefixed with: `/api/v1/otp`
+
+| Method | Endpoint  | Description                          | Access        |
+| ------ | --------- | ------------------------------------ | ------------- |
+| POST   | `/send`   | send otp for verify credintial login | Authenticated |
+| POST   | `/verify` | verify user credintial login         | Authenticated |
+
+---
+
+## 🚗 Ride Management
+
 All ride-related routes are prefixed with: `/api/v1/ride`
 
-| Method | Endpoint             | Description               | Access     |
-| ------ | -------------------- | ------------------------- | ---------- |
-| POST   | `/rider-request`     | Request a new ride        | Rider      |
-| PATCH  | `/ride-cancel/:id`   | Cancel requested ride     | Rider      |
-| GET    | `/rider-history`     | Get rider's ride history  | Rider      |
-| GET    | `/all-rides`         | Get all rides             | Admin Only |
-| GET    | `/driver-history`    | Get driver's ride history | Driver     |
-| PATCH  | `/update-status/:id` | Update ride status        | Driver     |
+| Method | Endpoint             | Description                                                   | Access     |
+| ------ | -------------------- | ------------------------------------------------------------- | ---------- |
+| POST   | `/rider-request`     | Request a new ride with pickupLocation and destination        | Rider      |
+| PATCH  | `/ride-cancel/:id`   | Cancel requested ride                                         | Rider      |
+| GET    | `/rider-history`     | Get rider's ride history                                      | Rider      |
+| GET    | `/all-rides`         | Get all rides                                                 | Admin Only |
+| GET    | `/driver-history`    | Get driver's ride history                                     | Driver     |
+| PATCH  | `/update-status/:id` | Update ride status picked up.in transit,complete,canceled etc | Driver     |
+
+---
+
+## 🚗 Driver Management
+
+All ride-related routes are prefixed with: `/api/v1/driver`
+
+| Method | Endpoint          | Description                                          | Access |
+| ------ | ----------------- | ---------------------------------------------------- | ------ |
+| GET    | `/available-ride` | Get available rider's tthats are in requested status | Driver |
+| PATCH  | `/accept/:id`     | driver accept rides                                  | Driver |
+| PATCH  | `/availability`   | driver change their availability status true/false   | Driver |
 
 ---
 

@@ -30,7 +30,7 @@ const createNewAccessTokenWithRefreshToken = async (refreshToken) => {
     if (!isUserExist) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "User Not Exist");
     }
-    if (isUserExist.isBlocked === false) {
+    if (isUserExist.isBlocked) {
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, `User is Blocked`);
     }
     const jwtPayload = {
