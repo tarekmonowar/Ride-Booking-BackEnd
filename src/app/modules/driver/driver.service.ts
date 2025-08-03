@@ -36,8 +36,19 @@ const acceptRide = async (rideId: string, driverId: string) => {
     throw new AppError(httpStatus.BAD_REQUEST, "Ride Not Available");
   }
   const driver = await User.findById(driverId);
-  if (!driver || !driver.isApproved || !driver.isAvailable) {
+
+  if (!driver) {
     throw new AppError(httpStatus.BAD_REQUEST, "Driver Not Available");
+  }
+  if (!driver.isApproved) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Driver Not Approved by admin");
+  }
+
+  if (!driver.isAvailable) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      "Driver is currently unavailable or already on a ride.",
+    );
   }
 
   if (driver.cancelledRidesCount! >= MAX_CANCEL_LIMIT) {

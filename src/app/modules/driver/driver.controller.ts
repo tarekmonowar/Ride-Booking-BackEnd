@@ -31,7 +31,7 @@ const acceptRide = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "All Available ride retrieved successfully",
+    message: "Ride accept successful",
     data: result,
   });
 });

@@ -78,6 +78,10 @@ const setPassword = async (userId: string, plainPassword: string) => {
     );
   }
 
+  if (!plainPassword) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Password not received");
+  }
+
   const hashedPassword = await bcryptjs.hash(
     plainPassword,
     Number(envVars.BCRYPT_SALT_ROUND),

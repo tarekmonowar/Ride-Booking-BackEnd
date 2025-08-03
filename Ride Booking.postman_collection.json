@@ -1,0 +1,715 @@
+{
+  "info": {
+    "_postman_id": "1da5faa6-d97a-4e67-b7fa-6e0007cbaffe",
+    "name": "Ride Booking",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39041693"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "register user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODg4YTFmYjNmMTY1ODQzZWZkYTEyMmMiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzODExNjM3LCJleHAiOjE3NTM5ODQ0Mzd9.z64B3-8w2fvNpzx1MWi5jnGDaX9Q1U6q7q2ky1sdQFU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"name\":\"tmmmmmmm\",\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"password\":\"dddddD@2\"\r\n   \r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/user/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "user", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all user admin",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjA5NDU2LCJleHAiOjE3NTQyOTU4NTZ9.hCvHUIhByvmAXd8sLEkhtRNSytmT6lzUfsR40xR1l3A",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/user/all-users?role=DRIVER",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "user", "all-users"],
+              "query": [
+                {
+                  "key": "role",
+                  "value": "DRIVER"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjA5NDU2LCJleHAiOjE3NTQyOTU4NTZ9.hCvHUIhByvmAXd8sLEkhtRNSytmT6lzUfsR40xR1l3A",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/user/me",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "user", "me"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update user",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjA5NDU2LCJleHAiOjE3NTQyOTU4NTZ9.hCvHUIhByvmAXd8sLEkhtRNSytmT6lzUfsR40xR1l3A",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"role\":\"DRIVER\",\r\n    \"isApproved\":true\r\n\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/user/688f17e03e10897579b63c23",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "user", "688f17e03e10897579b63c23"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "login credentials",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODg4YTFmYjNmMTY1ODQzZWZkYTEyMmMiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzODExNjM3LCJleHAiOjE3NTM5ODQ0Mzd9.z64B3-8w2fvNpzx1MWi5jnGDaX9Q1U6q7q2ky1sdQFU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"password\":\"dddddD@2\"\r\n   \r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forget-password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODg4YTFmYjNmMTY1ODQzZWZkYTEyMmMiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzUzODExNjM3LCJleHAiOjE3NTM5ODQ0Mzd9.z64B3-8w2fvNpzx1MWi5jnGDaX9Q1U6q7q2ky1sdQFU",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"email\": \"tarekmonowar2332@gmail.com\"\r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/forgot-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "forgot-password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reset-password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjEwNjQ4LCJleHAiOjE3NTQyMTEyNDh9.NRcuxFVsKUsrrBRiQho8TBYZxmpuxibYn2HOUL54S7s",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"newPassword\":\"Ph@654321@hP\",\r\n   \"id\":\"688f162f3e10897579b63c1f\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/reset-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "reset-password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "set password for goggle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"password\":\"123fd@54D\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/set-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "set-password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "change-password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjEwMzc2LCJleHAiOjE3NTQyOTY3NzZ9.wwDeewSib6bZsNgmnva1W8Pn6bJZtxQsh_sQawhJrEI",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldPassword\":\"dddddD@2\",\r\n    \"newPassword\":\"Ph12345@\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/change-password",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "change-password"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh-token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjEwMzc2LCJleHAiOjE3NTQyOTY3NzZ9.wwDeewSib6bZsNgmnva1W8Pn6bJZtxQsh_sQawhJrEI",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/refresh-token",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "refresh-token"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMTYyZjNlMTA4OTc1NzliNjNjMWYiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjEwMDkwLCJleHAiOjE3NTQyOTY0OTB9.tB9TmCnoYl3lsq2Rz8Dvmw4zJ8WLZZ2eLiMAn0TdyLw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/auth/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "auth", "logout"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "otp",
+      "item": [
+        {
+          "name": "otp send",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"tarekmonowar2332@gmail.com\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/otp/send",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "otp", "send"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verify otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"tarekmonowar2332@gmail.com\",\r\n    \"otp\":\"975289\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/otp/verify",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "otp", "verify"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ride",
+      "item": [
+        {
+          "name": "ride request by rider",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"pickupLocation\": {\r\n    \"lat\": 23.8103,\r\n    \"lng\": 90.4125\r\n  },\r\n  \"destination\": {\r\n    \"lat\": 23.7000,\r\n    \"lng\": 90.3750\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/ride/rider-request",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "ride", "rider-request"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel by rider",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"status\":\"CANCELLED\",\r\n \"cancellationReason\":\"i have no money\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/ride/ride-cancel/688f3259a17a426d4515480b",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "ride",
+                "ride-cancel",
+                "688f3259a17a426d4515480b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-status by driver",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"status\":\"COMPLETED\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/ride/update-status/688f30b32f84f595331ed5ca",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "ride",
+                "update-status",
+                "688f30b32f84f595331ed5ca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "rider ride history",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmUyYjAyYmUwZDVmMjY4Yzk1NTkiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjkzQGdtYWlsLmNvbSIsInJvbGUiOiJSSURFUiIsImlhdCI6MTc1NDIxNDA5NiwiZXhwIjoxNzU0MzAwNDk2fQ.rFnJRcVY-4kPL-fy22U1gdqY9s6rqCpy2SfpKU0Cr44",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/ride/rider-history",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "ride", "rider-history"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "driver ride history",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/ride/driver-history",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "ride", "driver-history"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "all-rides-admin",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjE1NTM1LCJleHAiOjE3NTQzMDE5MzV9.xomJw4vgvFgNx7w6amx0jp44Mo5-fW5NsB-W32E7I_M",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/ride/all-rides",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "ride", "all-rides"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Driver",
+      "item": [
+        {
+          "name": "Available -rides",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0MjE1NTM1LCJleHAiOjE3NTQzMDE5MzV9.xomJw4vgvFgNx7w6amx0jp44Mo5-fW5NsB-W32E7I_M",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/driver/available-rides",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "driver", "available-rides"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "accept ride",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/driver/accept/688f3256a17a426d451547ff",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": [
+                "api",
+                "v1",
+                "driver",
+                "accept",
+                "688f3256a17a426d451547ff"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "availablity",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmMmM0Y2U2ZTQ3MzkyZGRmOTdhMTQiLCJlbWFpbCI6InRhcmVrbW9ub3dhcjIzMzJAZ21haWwuY29tIiwicm9sZSI6IkRSSVZFUiIsImlhdCI6MTc1NDIxNTkyNSwiZXhwIjoxNzU0MzAyMzI1fQ.66b7Sp6CPScD8FLebeApyp6TFm2jfy2T0Hm4BUbPSrs",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"isAvailable\" :false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/v1/driver/availability",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "v1", "driver", "availability"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

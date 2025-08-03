@@ -30,7 +30,9 @@ const createUser = async (payload: Partial<IUser>) => {
     ...rest,
   });
 
-  return user;
+  const userWithoutPassword = user?.toObject();
+  delete userWithoutPassword.password;
+  return userWithoutPassword;
 };
 
 //*---------------------------------------------------------------update user------------------------------------------------------
@@ -79,7 +81,10 @@ const updateUser = async (
     runValidators: true,
   });
 
-  return newUpdatedUser;
+  const userWithoutPassword = newUpdatedUser?.toObject();
+  delete userWithoutPassword?.password;
+
+  return userWithoutPassword;
 };
 
 //*---------------------------------------------------------------get all users------------------------------------------------
@@ -97,8 +102,15 @@ const getAllUsers = async (query: Record<string, string>) => {
     queryBuilder.getMeta(),
   ]);
 
+  // remove password from each user
+  const usersWithoutPassword = data.map((user) => {
+    const userObj = user.toObject?.() || user;
+    delete userObj.password;
+    return userObj;
+  });
+
   return {
-    data,
+    data: usersWithoutPassword,
     meta,
   };
 };

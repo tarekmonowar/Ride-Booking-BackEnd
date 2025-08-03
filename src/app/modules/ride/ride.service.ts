@@ -26,9 +26,10 @@ const createRide = async (payload: CreateRideInput, userId: string) => {
     payload.pickupLocation,
     payload.destination,
   );
+  const formattedDistance = Number(distance.toFixed(2));
 
   // Step 2: Calculate estimated cost
-  const estimatedCost = distance * PER_KM_COST;
+  const estimatedCost = Number((distance * PER_KM_COST).toFixed(2));
 
   const ride = await Ride.create({
     rider: userId,
@@ -42,7 +43,7 @@ const createRide = async (payload: CreateRideInput, userId: string) => {
     },
     status: RideStatus.REQUESTED,
     estimatedCost: estimatedCost,
-    distance: distance,
+    distance: formattedDistance,
   });
 
   return ride;
@@ -102,7 +103,7 @@ const getRideHistory = async (
   const rideData = queryBuilder.filter().fields().sort().paginate();
 
   const [data, meta] = await Promise.all([
-    rideData.build().populate("rider driver").lean(),
+    rideData.build().populate("driver", "name email").lean(),
     queryBuilder.getMeta(),
   ]);
 
@@ -118,7 +119,7 @@ const getAllRides = async (query: Record<string, string>) => {
   const rideData = queryBuilder.filter().fields().sort().paginate();
 
   const [data, meta] = await Promise.all([
-    rideData.build().populate("rider driver").lean(),
+    rideData.build().populate("rider driver", "_id name email").lean(),
     queryBuilder.getMeta(),
   ]);
 
